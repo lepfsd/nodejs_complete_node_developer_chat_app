@@ -20,15 +20,31 @@ io.on('connection', (socket) => {
 		text: 'hey what is going on',
 		createAt: 123
 	}); */
-	
+
 	socket.emit('newMessage', {
-		from: 'John',
-		text: 'Sew you then',
-		cretedAt: 123
+		from: "Admin",
+		text: "welcome to the server",
+		cretedAt: new Date().getTime()
+	});
+
+	socket.broadcast.emit('newMessage', {
+		from: "Admin",
+		text: "user joined",
+		cretedAt: new Date().getTime()
 	});
 
 	socket.on('createMessage', (message) => {
 		console.log('createMessage', message);
+		/*socket.emit('newMessage', {
+			from: message.from,
+			text: message.text,
+			cretedAt: new Date().getTime()
+		}); */
+		socket.broadcast.emit('newMessage', {
+			from: message.from,
+			text: message.text,
+			cretedAt: new Date().getTime()
+		});
 	});
 
 	socket.on('createEmail', (newEmail) => {
