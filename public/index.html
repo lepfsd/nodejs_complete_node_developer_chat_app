@@ -8,9 +8,20 @@
 	<title>Document</title>
 </head>
 <body>
-	<h1>Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.</h1>	
+	<h1>Node.js is a JavaScript runtime</h1>	
+
+	<ol id="messages">
+		
+	</ol>
+
+	<form id="message-form">
+		<input type="text" name="message" placeholder="message">
+		<button>send</button>
+	</form>
+	<button id="send-location">Send location</button>	
 
 	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/libs/jquery-3.4.1.min.js"></script>
 	<script src="/js/index.js"></script>
 	
 </body>
